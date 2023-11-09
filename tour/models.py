@@ -17,7 +17,7 @@ TYPE_CHOICES = (
 )
 # Create your models here.
 
-class TourOverview (models.Model):
+class Overview (models.Model):
     tour_title = models.CharField(max_length=200)
     logo = models.CharField(max_length=200)
     price = models.FloatField()
@@ -69,7 +69,7 @@ class Inclusion (models.Model):
 
 
 
-class RoomType (models.Model):
+class Room_Type (models.Model):
     class Meta:
         verbose_name_plural = ("   Room Types")
     def __str__(self):

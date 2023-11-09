@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Supplier',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
+                ('supplier_name', models.CharField(max_length=200)),
                 ('logo', models.CharField(max_length=200)),
                 ('category', models.CharField(choices=[('NA', 'National Newspaper'), ('IN', 'International Newspaper'), ('RN', 'Regional Newspaper'), ('JM', 'Journal/Magazine'), ('OT', 'Others')], default='NA', max_length=2)),
                 ('o_type', models.CharField(choices=[('FR', 'Free Newspaper'), ('PD', 'Paid Newspaper'), ('OT', 'Others')], default='FR', max_length=2)),

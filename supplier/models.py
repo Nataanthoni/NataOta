@@ -20,7 +20,7 @@ TYPE_CHOICES = (
 # Create your models here.
 
 class Supplier(models.Model):
-    name = models.CharField(max_length=200)
+    supplier_name = models.CharField(max_length=200)
     logo = models.CharField(max_length=200)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, default="NA")
     o_type = models.CharField(choices=TYPE_CHOICES, max_length=2, default="FR")

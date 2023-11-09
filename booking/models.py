@@ -23,7 +23,7 @@ class Booking(models.Model):
        return Client.objects.filter(pub_date__year=2023).order_by("-pub_date")
 
     client_name = models.ForeignKey(Client, on_delete=models.CASCADE, default=get_last)
-    supplier_name = models.ForeignKey(Supplier, on_delete=models.CASCADE)
+    supplier_name = models.ForeignKey(Supplier, on_delete=models.CASCADE, default=1)
     source = models.CharField(max_length=200)
     budget = models.CharField(max_length=200)
     pax = models.CharField(max_length=10)
