@@ -21,10 +21,9 @@ class BookingStatus(models.Model):
 class Booking(models.Model):
     def get_last():
        return Client.objects.filter(pub_date__year=2023).order_by("-pub_date")
-    #    return Client.objects.filter(pub_date__year=2023).order_by("-pub_date", "headline")
 
     client_name = models.ForeignKey(Client, on_delete=models.CASCADE, default=get_last)
-    operator_name = models.ForeignKey(Supplier, on_delete=models.CASCADE, default=1)
+    supplier_name = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     source = models.CharField(max_length=200)
     budget = models.CharField(max_length=200)
     pax = models.CharField(max_length=10)
@@ -43,7 +42,7 @@ class Booking(models.Model):
 
     booking_status = models.ForeignKey(BookingStatus, default=1, on_delete=models.CASCADE, null=True, blank=True)
     booking_type = models.ForeignKey(BookingType, on_delete=models.CASCADE)
-    
+
     price = models.FloatField()
     consultant = models.CharField(max_length=100, null=True, blank=True)
     paid_amount = models.FloatField(null=True, blank=True)
