@@ -32,6 +32,9 @@ class TourOverview (models.Model):
     website = models.CharField(max_length=200, null=True, blank=True)
     added_date = models.DateTimeField('date published', null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = ("       Overview")
+
     def __str__(self):
         return self.name
     
@@ -44,29 +47,31 @@ class Itinerary (models.Model):
     
 
     class Meta:
-        verbose_name = ("Itinerary")
-        verbose_name_plural = ("Itineraries")
+        verbose_name_plural = ("      Itineraries")
 
     def __str__(self):
         return self.name
 
 
 class Photo (models.Model):
-
+    class Meta:
+        verbose_name_plural = ("     Photos")
     def __str__(self):
         return self.name
 
 
 
 class Inclusion (models.Model):
-
+    class Meta:
+        verbose_name_plural = ("    Inclusions")
     def __str__(self):
         return self.name
 
 
 
 class RoomType (models.Model):
-    
+    class Meta:
+        verbose_name_plural = ("   Room Types")
     def __str__(self):
         return self.name
 
@@ -76,20 +81,17 @@ class Pricing(models.Model):
     
 
     class Meta:
-        verbose_name = ("Pricing")
-        verbose_name_plural = ("Pricing")
+        verbose_name_plural = ("  Pricing")
 
     def __str__(self):
         return self.name
-
 
 
 class Property (models.Model):
     
 
     class Meta:
-        verbose_name = ("Property")
-        verbose_name_plural = ("Properties")
+        verbose_name_plural = (" Properties")
 
     def __str__(self):
         return self.name
