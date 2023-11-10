@@ -1,10 +1,10 @@
-<p align="center">
-  <p align="center">
-    <a href="#" target="_blank">
+<p align="left">
+  <p align="left">
+    <a href="https://nata.github.io" target="_blank">
       Github
     </a>
   </p>
-  <p align="center">
+  <p align="left">
     The Definitive Django Learning Platform.
   </p>
 </p>
