@@ -1,7 +1,7 @@
 <p align="center">
   <p align="center">
-    <a href="https://justdjango.com/?utm_source=github&utm_medium=logo" target="_blank">
-      <img src="https://assets.justdjango.com/static/branding/logo.svg" alt="JustDjango" height="72">
+    <a href="#" target="_blank">
+      Github
     </a>
   </p>
   <p align="center">
@@ -14,7 +14,7 @@
 This repository is a boilerplate Django project for quickly getting started.
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=GEogao-tUec"><img src="https://github.com/justdjango/django_project_boilerplate/blob/master/thumbnail.png" width="290"></a>
+  <a href="https://github.com/Nataanthoni/NataOta#readme"><img src="https://github.com/justdjango/django_project_boilerplate/blob/master/thumbnail.png" width="290"></a>
 </p>
 
 ## Getting started
