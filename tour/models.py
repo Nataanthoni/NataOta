@@ -1,36 +1,65 @@
+from django.utils import timezone
+from django.utils.timezone import now
 from django.db import models
+import datetime
 from supplier.models import Supplier
 # Create your models here.
-CATEGORY_CHOICES = (
-    ('NA', 'National Newspaper'),
-    ('IN', 'International Newspaper'),
-    ('RN', 'Regional Newspaper'),
-    ('JM', 'Journal/Magazine'),
-    ('OT', 'Others'),
+GROUP_TYPE = (
+    ('GP', 'Group'),
+    ('BT', 'Both'),
+    ('PR', 'Private'),
+)
+GUIDE_TYPE = (
+    ('PG', 'Partially Guided'),
+    ('SG', 'Self Guided'),
+    ('FG', 'Fully Guided'),
 )
 
+SINGLE_SUPPLEMENT = (
+    ('NO', 'No Single Supplement'),
+    ('YE', 'Mandatory Single Supplement')
+)
 
-TYPE_CHOICES = (
-    ('FR', 'Free Newspaper'),
-    ('PD', 'Paid Newspaper'),
-    ('OT', 'Others'),
+INSTANT_BOOKING = (
+    ('NO', 'No Instant Bookingt'),
+    ('YE', 'Instant Booking')
+)
+
+PHYSICAL_RATING = (
+    ('RE', 'Relaxing'),
+    ('EA', 'Easy'),
+    ('MO', 'Moderate'),
+    ('SE', 'Serious'),
+    ('HP', 'Heart pumping'),
+)
+
+TOUR_STATUS = (
+    ('LV', 'Live'),
+    ('DE', 'Deactivated'),
+    ('PE', 'Pending'),
 )
 # Create your models here.
 
 class Overview (models.Model):
     tour_title = models.CharField(max_length=200)
-    logo = models.CharField(max_length=200)
-    price = models.FloatField()
+
     operator = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=4, default="NA")
-    n_type = models.CharField(choices=TYPE_CHOICES, max_length=4, default="FR")
     city = models.CharField(max_length=200)
-    country = models.CharField(max_length=200)
-    phone = models.CharField(max_length=200)
-    phone2 = models.CharField(max_length=200, null=True, blank=True)
-    email = models.CharField(max_length=200)
-    website = models.CharField(max_length=200, null=True, blank=True)
-    added_date = models.DateTimeField('date published', null=True, blank=True)
+
+    tour_code = models.CharField(max_length=200)
+    tour_days = models.CharField(max_length=200)
+
+    group_type = models.CharField(choices=GROUP_TYPE, max_length=2, default="PR")
+    guide_type = models.CharField(choices=GUIDE_TYPE, max_length=2, default="FG")
+
+    website_link = models.CharField(max_length=200, null=True, blank=True)
+    
+    single_supplement = models.CharField(choices=SINGLE_SUPPLEMENT, max_length=2, default="NO")
+    instant_bookability = models.CharField(choices=INSTANT_BOOKING, max_length=2, default="YE")
+    physical_rating = models.CharField(choices=PHYSICAL_RATING, max_length=2, default="SE")
+
+    introduction = models.CharField(max_length=1200, null=True, blank=True)
+    added_date = models.DateField('Added date', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = ("       Overview")
@@ -40,7 +69,6 @@ class Overview (models.Model):
     
     def was_published_recently(self):
         return self.added_date >= timezone.now() - datetime.timedelta(days=1)
-
 
 
 class Itinerary (models.Model):
