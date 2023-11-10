@@ -64,7 +64,7 @@ class Overview (models.Model):
         verbose_name_plural = ("       Overview")
 
     def __str__(self):
-        return self.name
+        return self.tour_title
     
     def was_published_recently(self):
         return self.added_date >= timezone.now() - datetime.timedelta(days=1)
@@ -82,7 +82,7 @@ class Itinerary (models.Model):
         verbose_name_plural = ("      Itineraries")
 
     def __str__(self):
-        return self.name
+        return "Itinerary details for Tour code t100" + str(self.id)
 
 
 class Photo (models.Model):

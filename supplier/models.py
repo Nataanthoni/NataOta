@@ -1,5 +1,7 @@
 from django.db import models
-
+import datetime
+from django.utils import timezone
+from django.utils.timezone import now
 # Create your models here.
 
 # Create your models here.
@@ -36,7 +38,7 @@ class Supplier(models.Model):
     added_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.name
+        return self.supplier_name
     
     def was_published_recently(self):
         return self.added_date >= timezone.now() - datetime.timedelta(days=1)
