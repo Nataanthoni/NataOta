@@ -44,7 +44,6 @@ class Overview (models.Model):
     tour_title = models.CharField(max_length=200)
 
     operator = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    city = models.CharField(max_length=200)
 
     tour_code = models.CharField(max_length=200)
     tour_days = models.CharField(max_length=200)
@@ -58,7 +57,7 @@ class Overview (models.Model):
     instant_bookability = models.CharField(choices=INSTANT_BOOKING, max_length=2, default="YE")
     physical_rating = models.CharField(choices=PHYSICAL_RATING, max_length=2, default="SE")
 
-    introduction = models.CharField(max_length=1200, null=True, blank=True)
+    introduction = models.TextField(max_length=1200, null=True, blank=True)
     added_date = models.DateField('Added date', null=True, blank=True)
 
     class Meta:
@@ -72,7 +71,12 @@ class Overview (models.Model):
 
 
 class Itinerary (models.Model):
-    
+    starting_point = models.CharField(max_length=200, null=True, blank=True)
+    ending_point = models.CharField(max_length=200, null=True, blank=True)
+
+    tour = models.ForeignKey(Overview, on_delete=models.CASCADE)
+
+    detailed_itinerary = models.TextField(max_length=20200, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = ("      Itineraries")
